@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>中国象棋 — 人机对战</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>中国象棋</h1>
+    <p>人机对战 · 红方先行</p>
+  </header>
+
+  <div class="game-container">
+    <!-- 控制栏 -->
+    <div class="controls">
+      <label for="difficulty-select">难度：</label>
+      <select id="difficulty-select">
+        <option value="easy">简单</option>
+        <option value="medium" selected>中等</option>
+        <option value="hard">困难</option>
+      </select>
+      <button id="undo-btn">悔棋</button>
+      <button id="restart-btn">重新开始</button>
+    </div>
+
+    <!-- 状态栏 -->
+    <div class="status-bar">
+      <div id="turn-indicator" class="turn-indicator red-turn">红方走棋</div>
+      <div id="status-text">请走棋</div>
+      <div id="thinking-indicator" class="thinking-indicator">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+
+    <!-- 棋盘 -->
+    <div class="board-container">
+      <canvas id="chess-board"></canvas>
+    </div>
+
+    <!-- 棋子说明 -->
+    <div class="piece-legend">
+      <span>帅/将·九宫</span>
+      <span>仕/士·斜走</span>
+      <span>相/象·田字</span>
+      <span>马·日字</span>
+      <span>车·直走</span>
+      <span>炮·隔子吃</span>
+      <span>兵/卒·过河</span>
+    </div>
+  </div>
+
+  <!-- 消息覆盖层 -->
+  <div id="message-overlay" class="message-overlay">
+    <div class="message-box">
+      <p id="message-text"></p>
+      <button id="message-dismiss">确定</button>
+    </div>
+  </div>
+
+  <!-- 脚本加载顺序很重要 -->
+  <script src="js/rules.js"></script>
+  <script src="js/board.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
